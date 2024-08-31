@@ -1,0 +1,15 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: app2
+  namespace: default
+spec:
+  releaseName: app2
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: apache
+    version: 9.1.2
+  values:
+    service:
+      type: ClusterIP
+      port: 8080

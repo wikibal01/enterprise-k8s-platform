@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboards
+  namespace: monitoring
+data:
+  sample-dashboard.json: |
+    {
+      "id": null,
+      "title": "Sample Dashboard",
+      "rows": [
+        {
+          "panels": [
+            {
+              "type": "graph",
+              "title": "Sample Graph",
+              "datasource": "Prometheus",
+              "targets": [
+                {
+                  "expr": "up",
+                  "intervalFactor": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }

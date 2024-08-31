@@ -1,0 +1,17 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: cilium
+  namespace: kube-system
+spec:
+  releaseName: cilium
+  chart:
+    repository: https://helm.cilium.io
+    name: cilium
+    version: 1.10.4
+  values:
+    ipam:
+      mode: kubernetes
+    kubeProxyReplacement: strict
+    hubble:
+      enabled: true

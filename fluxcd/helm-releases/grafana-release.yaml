@@ -1,0 +1,13 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  releaseName: grafana
+  chart:
+    repository: https://grafana.github.io/helm-charts
+    name: grafana
+    version: 6.12.2
+  values:
+    adminPassword: "admin"
