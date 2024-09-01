@@ -1,0 +1,15 @@
+kubeProxyReplacement: "strict"
+hubble:
+  enabled: true
+  relay:
+    enabled: true
+  ui:
+    enabled: true
+  metrics:
+    enabled:
+    - dns:query
+    - tcp:connect
+    - http
+  enableMetrics: true
+ipam:
+  mode: "kubernetes"

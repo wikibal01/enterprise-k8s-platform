@@ -1,0 +1,17 @@
+apiVersion: helm.cilium.io/v1alpha1
+kind: CiliumConfig
+metadata:
+  name: cilium
+  namespace: kube-system
+spec:
+  ipam:
+    mode: kubernetes
+  kubeProxyReplacement: strict
+  externalIPs:
+    enabled: true
+  nodePort:
+    enabled: true
+  hubble:
+    enabled: true
+  hubbleUI:
+    enabled: true
