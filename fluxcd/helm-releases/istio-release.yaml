@@ -1,0 +1,29 @@
+# fluxcd/helm-releases/istio-release.yaml
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: istio
+  namespace: istio-system
+spec:
+  releaseName: istio
+  chart:
+    repository: https://istio-release.storage.googleapis.com/charts
+    name: istio
+    version: 1.17.2
+  values:
+    global:
+      proxy:
+        autoInject: enabled
+        tracer: "zipkin"
+    gateways:
+      istio-ingressgateway:
+        enabled: true
+    pilot:
+      traceSampling: 100.0
+    meshConfig:
+      enableTracing: true
+    telemetry:
+      enabled: true
+      v2:
+        prometheus:
+          enabled: true
